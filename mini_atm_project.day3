@@ -1,0 +1,109 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMuLbxA72DAndEuCW/xdh2g",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ranvijay29y/sd_ranvijay_113/blob/main/mini_atm_project.day3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "4u2xAklJsPKn"
+      },
+      "outputs": [],
+      "source": [
+        "ef deposit(customer_data):\n",
+        "  pin = int(input(\"Enter PIN: \"))\n",
+        "  if pin != customer_data[\"PIN\"]:\n",
+        "    print(\"Invalid PIN\")\n",
+        "  else:\n",
+        "    money=int(dinput(\"Enter amount to be deposited: \"))\n",
+        "    customer_data[\"Amount\"] = customer_data[\"Amount\"] + money\n",
+        "def withdrawal(customer_data):\n",
+        "  pin = int(input(\"Enter PIN: \"))\n",
+        "  if pin != customer_data[\"PIN\"]:\n",
+        "    print(\"Invalid PIN\")\n",
+        "  else:\n",
+        "    money=int(input(\"Enter amount to be withdrawn: \"))\n",
+        "    if customer_data[\"Amount\"] < money:\n",
+        "      print(\"Not enough balance\")\n",
+        "      return customer_data['Amount']\n",
+        "    else:\n",
+        "      customer_data[\"Amount\"] = customer_data[\"Amount\"] - money\n",
+        "      return customer_data[\"Amount\"]\n",
+        "def amount(customer_data):\n",
+        "  print(customer_data[\"Amount\"])\n",
+        "\n",
+        "def pin_change(customer_data):\n",
+        "  pin = int(input(\"Enter PIN: \"))\n",
+        "  if pin != customer_data[\"PIN\"]:\n",
+        "    print(\"Invalid PIN\")\n",
+        "  else:\n",
+        "    npin = int(input(\"Enter new PIN: \"))\n",
+        "    n2pin = int(input(\"Confirm PIN: \"))\n",
+        "    if npin != n2pin:\n",
+        "      print(\"Not same\")\n",
+        "    else:\n",
+        "      customer_data[\"PIN\"] = npin\n",
+        "      print(\"PIN changed succesfully\")\n",
+        "\n",
+        "customer = {\"Card number\" : 1234 , \"PIN\" : 789 , \"Amount\" : 4500 }\n",
+        "cnum = int(input(\"Enter Card number: \"))\n",
+        "if cnum != customer[\"Card number\"]:\n",
+        "  print(\"Invalid Card Number\")\n",
+        "else:\n",
+        "  p = 1\n",
+        "  while p==1:\n",
+        "    service = int(input(\"Services :\\n 1-DEPOSIT \\n 2-WITHDRAWAL \\n 3-PIN CHANGE \\n 4-AMOUNT CHECK \\n 5-EXIT \\n Enter Service: \"))\n",
+        "    if service == 1:\n",
+        "      deposit(customer)\n",
+        "    elif service == 2:\n",
+        "      print(\"new amount :\" ,withdrawal(customer))\n",
+        "    elif service == 3:\n",
+        "      pin_change(customer)\n",
+        "    elif service == 4:\n",
+        "      amount(customer)\n",
+        "    elif service == 5:\n",
+        "      p=0\n",
+        "      print(\"THANKS FOR USING SERVICES...\")\n",
+        "      break\n",
+        "    else:\n",
+        "      print(\"Invalid choice\")\n",
+        "    inp = input(\"more services?(Y/N): \")\n",
+        "    if inp == 'N' or inp == 'n':\n",
+        "      p = 0"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "sowVbgF6u2kp"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
